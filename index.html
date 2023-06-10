@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Areolinea</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-body-tertiary " id="navbar">
+    <div class="container-fluid fondoNav">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03"
+        aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="logo"></div>
+      <a class="navbar-brand nombrePagina" href="#navbar">AirLink</a>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="btn btn-outline-dark border-0" aria-current="page" href="#navbar">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-outline-dark border-0" aria-current="page" href="#conoceServicios">Menu</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-outline-dark border-0" aria-current="page" href="#vivieTuSueño">Vive</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-outline-dark border-0" aria-current="page" href="#footer">Quienes somos</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2 barra" type="search" placeholder="Buscar" aria-label="Search">
+          <button class="btn btn-outline-dark" type="button">Buscar</button>
+        </form>
+      </div>
+  </nav>
+
+  <!--Carrusel general  -->
+  <div id="carruselGeneral" class="carousel slide mt-5" data-bs-ride="carousel" ;>
+    <div class="carousel-inner">
+      <div class="carousel-item carousel active">
+        <img src="./assets/imagencarro1.jpg" class="d-block w-100">
+      </div>
+      <div class="carousel-item carousel">
+        <img src="./assets/imagencarro2.jpg" class="d-block w-100">
+      </div>
+      <div class="carousel-item carousel">
+        <img src="./assets/imagencarro3.jpg" class="d-block w-100">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carruselGeneral"
+      data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carruselGeneral"
+      data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <!-- Seccion menu servicios -->
+  <h2 class="h2 mt-4 text-center" id="conoceServicios">Conoce nuestros servicios</h2>
+  <center>
+    <div class="row mt-2 grid g-5 w-75">
+      <div class="col-3">
+        <div class="botonRutas">
+          <a class="btn btn-secondary" href="#seccionPasajeros">
+            <span class="material-symbols-outlined fs-1">account_circle</span>
+          </a>
+        </div>
+        <div class="row">
+          <p>Pasajeros</p>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="botonRutas">
+          <a class="btn btn-secondary" href="#seccionRutas">
+            <span class="material-symbols-outlined fs-1">flight</span>
+          </a>
+        </div>
+        <div class="row">
+          <p>Rutas</p>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="botonRutas">
+          <a class="btn btn-secondary" href="#seccionTiquetes">
+            <span class="material-symbols-outlined fs-1">airplane_ticket</span>
+          </a>
+        </div>
+        <div class="row">
+          <p>Tiquetes</p>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="botonRutas">
+          <a class="btn btn-secondary" href="#seccionPuntos">
+            <span class="material-symbols-outlined fs-1">add_reaction</span>
+          </a>
+        </div>
+        <div class="row">
+          <p>Puntos</p>
+        </div>
+      </div>
+    </div>
+  </center>
+
+  <!--Tarjetas-->
+  <center>
+    <section class="servicios">
+      <h2 class="mt-5" id="vivieTuSueño">Vive tu sueño</h2>
+      <div class="container">
+        <div class="row">
+          <div class="col col-xs-4 mt-5">
+            <div class="card shadow p-3 mb-5 bg-body-tertiary rounded contenedorTarjetas">
+              <img src="./assets/tarjeta11.jpg" class="card-img-top">
+              <div class="card-body textoTarjetas">
+                <h5 class="card-title cuerpoTarjeta">Medellin</h5>
+                <p class="card-text">Descubre Medellín, la "Ciudad de la Eterna Primavera", con su innovador Metrocable.
+                  Disfruta de vistas panorámicas hermosas y únicas, conecta con las comunas y explora el hermoso Parque
+                  Arví.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col col-xs-4 mt-5">
+            <div class="card shadow p-3 mb-5 bg-body-tertiary rounded contenedorTarjetas">
+              <img src="./assets/tarjeta11.jpg" class="card-img-top">
+              <div class="card-body textoTarjetas">
+                <h5 class="card-title cuerpoTarjeta">Bogotá</h5>
+                <p class="card-text">Embárcate en un viaje inolvidable a Bogotá, donde se entrelazan historia y
+                  modernidad. Explora museos fascinantes, saborea deliciosos platos locales y sorprendete en esta
+                  ciudad.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col col-xs-4 mt-5">
+            <div class="card shadow p-3 mb-5 bg-body-tertiary rounded contenedorTarjetas">
+              <img src="./assets/tarjeta11.jpg" class="card-img-top">
+              <div class="card-body textoTarjetas">
+                <h5 class="card-title cuerpoTarjeta">Cali</h5>
+                <p class="card-text">La "Feria de Cali", con su música, bailes, desfiles y eventos culturales, atrae a
+                  visitantes de todo el mundo, ofrece gastronomía exquisita y paisajes encantadores, cultura vibrante y
+                  clima tropical.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-5">
+          <div class="col col-xs-4 mt-1">
+            <div class="card shadow p-3 mb-5 bg-body-tertiary rounded contenedorTarjetas">
+              <img src="./assets/tarjeta11.jpg" class="card-img-top">
+              <div class="card-body textoTarjetas">
+                <h5 class="card-title cuerpoTarjeta">Cartagena</h5>
+                <p class="card-text">Descubre la belleza de Cartagena: sus playas de ensueño, su vibrante cultura te
+                  esperan para crear recuerdos inolvidables cultura y gastronomía inigualables te esperan.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col col-xs-4 mt-1">
+            <div class="card shadow p-3 mb-5 bg-body-tertiary rounded contenedorTarjetas">
+              <img src="./assets/tarjeta11.jpg" class="card-img-top">
+              <div class="card-body textoTarjetas">
+                <h5 class="card-title cuerpoTarjeta">Santa Marta</h5>
+                <p class="card-text">Adéntrate en la incomparable majestuosidad de las cautivadoras playas paradisíacas
+                  y la exuberante selva tropical de Santa Marta, un destino turístico inigualable y fascinante en
+                  Colombia.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col col-xs-4 mt-1">
+            <div class="card shadow p-3 mb-5 bg-body-tertiary rounded contenedorTarjetas">
+              <img src="./assets/tarjeta11.jpg" class="card-img-top">
+              <div class="card-body textoTarjetas">
+                <h5 class="card-title cuerpoTarjeta">San Andrés</h5>
+                <p class="card-text">
+                  Embárcate en una inolvidable travesía por las maravillas naturales de San Andrés: paradisíacas playas,
+                  arrecifes impresionantes, deslumbrante biodiversidad marina y hospitalidad caribeña.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </center>
+
+  <!-- Seccion pasajeros -->
+  <h2 class="text-center mb-2" id="seccionPasajeros">Pasajeros</h2>
+
+  <!-- carrusel pasajeros -->
+  <div id="carruselPasajeros" class="carousel slide mt-5" data-bs-ride="carousel" ;>
+    <div class="carousel-inner">
+      <div class="carousel-item carousel active">
+        <img src="./assets/imagencarro1.jpg" class="d-block w-100">
+      </div>
+      <div class="carousel-item carousel">
+        <img src="./assets/imagencarro2.jpg" class="d-block w-100">
+      </div>
+      <div class="carousel-item carousel">
+        <img src="./assets/imagencarro3.jpg" class="d-block w-100">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carruselPasajeros"
+      data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carruselPasajeros"
+      data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <!-- Formulario pasajeross -->
+  <center>
+    <form class="row g-3 needs-validation m-3" id="agregarPasajeros">
+      <div class="mt-5 col-md-4 position-relative">
+        <div class="form-outline text-start">
+          <label for="identi" class="form-label"><b>Número de identificaión</b></label>
+          <input type="number" class="form-control" id="identi" placeholder="Número de identificaión" required />
+        </div>
+      </div>
+      <div class="mt-5 col-md-4 position-relative">
+        <div class="form-outline text-start">
+          <label for="nombrePersona" class="form-label"><b>Nombre</b></label>
+          <input type="text" class="form-control" id="nombrePersona" placeholder="Nombre" required />
+        </div>
+      </div>
+      <div class="mt-5 col-md-4 position-relative">
+        <div class="form-outline text-start">
+          <label for="apellido" class="form-label"><b>Apellidos</b></label>
+          <input type="text" class="form-control" id="apellido" placeholder="Apellidos" required />
+        </div>
+      </div>
+      <div class="mt-5 col-md-3 position-relative">
+        <div class="form-outline text-start">
+          <label for="telefono" class="form-label"><b>Teléfono</b></label>
+          <input type="number" class="form-control" id="telefono" placeholder="Teléfono" required />
+        </div>
+      </div>
+      <div class="mt-5 col-md-4 position-relative">
+        <div class="form-outline text-start">
+          <label for="correo" class="form-label"><b>Correo</b></label>
+          <input type="email" class="form-control" id="correo" placeholder="Correo" required />
+        </div>
+      </div>
+      <div class="mt-5 col-md-2 position-relative">
+        <div class="form-outline text-start">
+          <label for="fecha" class="form-label"><b>Fecha de nacimiento</b></label>
+          <input type="date" class="form-control" id="fecha" placeholder="dd-mm-aa" required />
+        </div>
+      </div>
+      <div class="mt-5 col-md-3 position-relative">
+        <div class="form-outline text-start">
+          <label for="nacionalidad" class="form-label"><b>Nacionalidad</b></label>
+          <input type="text" class="form-control" id="nacionalidad" placeholder="Nacionalidad" required />
+        </div>
+      </div>
+      <div class="mt-3 pt-2">
+        <button class="btn btn-outline-success" type="submit">Agregar</button>
+        <button class="btn btn-outline-success" id="listar" type="button">Listar</button>
+      </div>
+    </form>
+  </center>
+  
+  
+  <!-- Barra de busqueda pasajeros -->
+  <div class="input-group mt-3 mb-5 justify-content-center">
+    <div class="form-outline">
+      <input type="number" id="buscar" class="form-control pb-3" placeholder="Num Identificacion" />
+    </div>
+    <button id="botonBuscar" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <span class="material-symbols-outlined">search</span>
+    </button>
+  </div>
+
+  <!-- Modal barra de busqueda pasajeros -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="modalPasajero" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content estiloModal">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="modalPasajero">Informacion de usuario</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="cuerpoModalBusquedaPasajero">
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Modal editar pasajeros -->
+  <div class="modal fade" id="modalEditar" tabindex="-1" aria-labelledby="modalPasajero" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content estiloModal">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="modalPasajero">Editar usuario</h1>
+        </div>
+        <div class="modal-body">
+          <form class="row g-3 needs-validation m-3" id="editarPasajeros">
+            <div class="mt-5 col-md-6 position-relative">
+              <div class="form-outline">
+                <label for="identiEditar" class="form-label"><b>Número de identificaión</b></label>
+                <input type="number" class="form-control" id="identiEditar" placeholder="Vacio no hace cambios"/>
+              </div>
+            </div>
+            <div class="mt-5 col-md-6 position-relative">
+              <div class="form-outline">
+                <label for="nombrePersonaEditar" class="form-label"><b>Nombre</b></label>
+                <input type="text" class="form-control" id="nombrePersonaEditar" placeholder="Vacio no hace cambios"/>
+              </div>
+            </div>
+            <div class="mt-5 col-md-6 position-relative">
+              <div class="form-outline">
+                <label for="apellidoEditar" class="form-label"><b>Apellidos</b></label>
+                <input type="text" class="form-control" id="apellidoEditar" placeholder="Vacio no hace cambios"/>
+              </div>
+            </div>
+            <div class="mt-5 col-md-6 position-relative">
+              <div class="form-outline">
+                <label for="telefonoEditar" class="form-label"><b>Teléfono</b></label>
+                <input type="number" class="form-control" id="telefonoEditar" placeholder="Vacio no hace cambios"/>
+              </div>
+            </div>
+            <div class="mt-5 col-md-6 position-relative">
+              <div class="form-outline">
+                <label for="correoEditar" class="form-label"><b>Correo</b></label>
+                <input type="email" class="form-control" id="correoEditar" placeholder="Vacio no hace cambios"/>
+              </div>
+            </div>
+            <div class="mt-5 col-md-6 position-relative">
+              <div class="form-outline">
+                <label for="fechaEditar" class="form-label"><b>Fecha de nacimiento</b></label>
+                <input type="date" class="form-control" id="fechaEditar" placeholder="Vacio no hace cambios"/>
+              </div>
+            </div>
+            <div class="mt-5 col-md-6 position-relative">
+              <div class="form-outline">
+                <label for="nacionalidadEditar" class="form-label"><b>Nacionalidad</b></label>
+                <input type="text" class="form-control" id="nacionalidadEditar" placeholder="Vacio no hace cambios"/>
+              </div>
+            </div>
+            <div class="mt-3 pt-2">
+              <button class="btn btn-outline-success" type="submit" id="editarPasajeros" data-bs-dismiss="modal">Actualizar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Tabla pasajeros -->
+  <center>
+    <div class="text-end">
+      <button class="btn btn-outline-dark rounded-circle mb-3 me-5 " id="cerrarTablaPasajeros">X</button>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-striped table-bordered w-75">
+        <thead>
+          <tr class="table-dark">
+            <th>Identificacion</th>
+            <th>Nombres</th>
+            <th>Apellidos</th>
+            <th>Telefono</th>
+            <th>Correo</th>
+            <th>Fecha de nacimiento</th>
+            <th>Nacionalidad</th>
+            <th>opciones</th>
+          </tr>
+        </thead>
+        <tbody id="padreTablaPasajeros">
+         
+        </tbody>
+      </table>
+    </div>
+  </center>
+  <!-- Seccion Destinos -->
+  <h2 class="text-center mb-5 mt-5" id="seccionRutas">Destinos</h2>
+
+  <!-- Carrusel destinos -->
+  <div id="carruselDestinos" class="carousel slide mt-5" data-bs-ride="carousel" ;>
+    <div class="carousel-inner">
+      <div class="carousel-item carousel active">
+        <img src="./assets/imagencarro1.jpg" class="d-block w-100">
+      </div>
+      <div class="carousel-item carousel">
+        <img src="./assets/imagencarro2.jpg" class="d-block w-100">
+      </div>
+      <div class="carousel-item carousel">
+        <img src="./assets/imagencarro3.jpg" class="d-block w-100">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carruselDestinos"
+      data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carruselDestinos"
+      data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <!-- Formulario destinos -->
+  <center>
+    <form class="row g-3 needs-validation m-3" id="agregarDestino" novalidate>
+      <div class="mt-5 col-md-4 position-relative">
+        <div class="form-outline text-start text-start">
+          <label for="nombreRuta" class="form-label"><b>Nombre de la ruta</b></label>
+          <input type="text" class="form-control" id="nombreRuta" placeholder="Nombre de la ruta" required />
+        </div>
+      </div>
+      <div class="mt-5 col-md-4 position-relative">
+        <div class="form-outline text-start">
+          <label for="nombrePersona" class="form-label"><b>ValorTiquete</b></label>
+          <input type="number" class="form-control" id="valorTiquete" placeholder="ValorTiquete" required />
+        </div>
+      </div>
+      <div class="mt-5 col-md-4 position-relative">
+        <div class="form-outline text-start">
+          <label for="ciudadOrigen" class="form-label"><b>Ciudad de origen</b></label>
+          <input type="text" class="form-control" id="ciudadOrigen" placeholder="Ciudad de origen" required />
+        </div>
+      </div>
+      <div class="mt-5 col-md-6 position-relative">
+        <div class="form-outline text-start">
+          <label for="ciudadDestino" class="form-label"><b>Ciudad destino</b></label>
+          <input type="text" class="form-control" id="ciudadDestino" placeholder="Ciudad destino" required />
+        </div>
+      </div>
+      <div class="mt-5 col-md-6 position-relative">
+        <div class="form-outline text-start">
+          <label for="puntosFide" class="form-label"><b>Puntos para fidelización</b></label>
+          <input type="number" class="form-control" id="puntosFide" placeholder="Puntos para fidelización" required />
+        </div>
+      </div>
+      <div class="mt-3 pt-2">
+        <button class="btn btn-outline-success" type="button" id="listarRutas">Listar</button>
+        <button class="btn btn-outline-success" type="submit">Agregar</button>
+      </div>
+    </form>
+  </center>
+
+  <!-- Tabla destinos -->
+  <center>
+    <div class="text-end">
+      <button class="btn btn-outline-dark rounded-circle mb-3 me-5 " id="cerrarTablaDestino">X</button>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-striped table-bordered w-75">
+        <thead>
+          <tr class="table-dark">
+            <th>ID</th>
+            <th>Nombre de la ruta</th>
+            <th>Valor tiquete</th>
+            <th>Ciudad origen</th>
+            <th>Ciudad destino</th>
+            <th>Puntos fidelización</th>
+            <th>Eliminar</th>
+          </tr>
+        </thead>
+        <tbody id="padreTablaDestino">
+          
+        </tbody>
+      </table>
+    </div>
+
+  <!-- Seccion compra tiquetes -->
+  <h2 class="text-center mb-5 mt-5" id="seccionTiquetes">Compra de tiquetes</h2>
+
+  <!-- Formulario compra tiquetes -->
+  <center>
+    <form class="row g-3 needs-validation m-3" id="agregarCompra" novalidate>
+      <div class="mt-5 col-md-6 position-relative">
+        <div class="form-outline">
+          <select class="form-select" aria-label="Default select example" id="selectPasajero">
+            <option selected>Seleccione el pasajero</option>
+          </select>
+        </div>
+      </div>
+      <div class="mt-5 col-md-6 position-relative">
+        <div class="form-outline">
+          <select class="form-select" aria-label="Default select example" id="selectRuta">
+            <option selected>Seleccione la ruta de viaje</option>
+          </select>
+        </div>
+      </div>
+      <div class="mt-3 pt-2">
+        <button class="btn btn-outline-success" type="submit" data-bs-toggle="modal" data-bs-target="#modalcompra" id="comprar">Comprar</button>
+      </div>
+    </form>
+  </center>
+
+  <!-- Modal que muestra la compra -->
+  <div class="modal fade" id="modalcompra" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Resumen de la compra</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body text-start" id="contenidoCompra">
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Seccion puntos de fidelizacion -->
+  <h2 class="text-center mb-5 mt-5" id="seccionPuntos">Puntos fidelización</h2>
+
+  <!-- Tabla puntos de fidelizacion -->
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered w-75 mb-5">
+      <thead>
+        <tr class="table-dark">
+          <th>Nombre</th>
+          <th>Apelldio</th>
+          <th>Puntos fidelización</th>
+        </tr>
+      </thead>
+      <tbody id="padreTablaFidelizacion">
+        
+      </tbody>
+    </table>
+  </div>
+
+  <!-- footer -->
+  <footer class="text-center text-lg-start bg-light text-muted mt-5" id="footer">
+    <!-- Seccion redes sociales -->
+    <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+      <div class="me-5 d-none d-lg-block">
+        <span>Conéctate con nosotros en las redes sociales:</span>
+      </div>
+      <div>
+        <a href="https://www.facebook.com/" target="_blank" class="me-4 text-reset text-decoration-none text-decoration-none">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://twitter.com/?lang=es" target="_blank" class="me-4 text-reset text-decoration-none">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="https://mail.google.com/mail" target="_blank" class="me-4 text-reset text-decoration-none">
+          <i class="fab fa-google"></i>
+        </a>
+        <a href="https://www.instagram.com/" target="_blank" class="me-4 text-reset text-decoration-none">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.linkedin.com/" target="_blank" class="me-4 text-reset text-decoration-none">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </div>
+    </section>
+
+    <!-- Cuerpo footer -->
+    <section>
+      <!-- Quienes somos -->
+      <div class="container text-center text-md-start mt-5">
+        <div class="row mt-3">
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <h6 class="text-uppercase fw-bold mb-4">
+              <i class="fas fa-gem me-3"></i>AirLink
+            </h6>
+            <p>
+              Nosotros somos una aerolínea comprometida en brindar un servicio excepcional y conexiones globales. Con una flota moderna y profesional, nos esforzamos por ofrecer vuelos seguros, cómodos y convenientes. Nuestro objetivo es hacer realidad los sueños de viaje de nuestros pasajeros, proporcionándoles experiencias inolvidables en el aire.
+            </p>
+          </div>
+
+          <!-- Servicios -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <h6 class="text-uppercase fw-bold mb-4">Servicios</h6>
+            <p>
+              <a href="#seccionPasajeros" class="text-reset text-decoration-none">Pasajeros</a>
+            </p>
+            <p>
+              <a href="#seccionRutas" class="text-reset text-decoration-none">Rutas</a>
+            </p>
+            <p>
+              <a href="#seccionTiquetes" class="text-reset text-decoration-none">Compra</a>
+            </p>
+            <p>
+              <a href="#seccionPuntos" class="text-reset text-decoration-none">Fidelización</a>
+            </p>
+          </div>
+          
+          <!-- Contacto -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <h6 class="text-uppercase fw-bold mb-4">Contacto</h6>
+            <p><i class="fas fa-home me-3"></i> Mutis, Buaramanga</p>
+            <p>
+              <i class="fas fa-envelope me-3"></i>
+              oscarardila1098@gmail.com
+            </p>
+            <p><i class="fas fa-phone me-3"></i>3157618908</p>
+            <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Copyright -->
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05)">
+      © 2021 Copyright:
+      <a class="text-reset text-decoration-none fw-bold" href="#navbar">AirLink.com</a>
+    </div>
+  </footer>
+
+  <!-- Boton que lleva al navbar -->
+  <div class="fixed-bottom mb-5 m-lg-5 text-start">
+    <a class="btn btn-secondary rounded-circle" href="#navbar">
+      <span class="material-symbols-outlined fs-2">
+        home
+      </span>
+    </a>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>

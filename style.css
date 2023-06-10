@@ -1,0 +1,74 @@
+/* 
+Dimensiones imagen: 
+carrusel: 1920*518
+logo: 1291*891
+tarjeta: 1920*1281
+ */
+body{
+    background-color: aliceblue;
+}
+
+/*Navbar */
+.fondoNav{
+    background-color:  rgb(195 199 52 / 22%);
+    font-size: 8px;
+}
+
+.nombrePagina{
+    font-family: fantasy;
+    font-size: 35px;
+}
+
+.barra{
+    width: 370px;
+}
+
+.logo {
+    width: 150px; 
+    height: 110px; 
+    margin-right: 20px; 
+    background-image: url(./assets/logo1.png); 
+    background-size: cover; 
+    background-position: center;
+}
+
+/* Menu Servicios */
+
+h2{
+    font-family: monospace; 
+    background-color: rgb(217 110 9 / 14%); 
+    height: 40px;
+}
+
+/* Tarjetas */
+
+.contenedorTarjetas{
+    width: 18rem;
+}
+
+.cuerpoTarjeta{
+    border: 1px solid black; 
+    padding: 3%; 
+    width: 100%; 
+    background-color: rgb(255, 255, 255); 
+    box-shadow: 0px 0px 5px black;
+}
+
+.textoTarjetas{
+    display:flex; 
+    flex-direction: column; 
+    align-items: center; 
+    background-color: #69b8ca17;
+}
+
+/* Modal busqueda */
+
+.estiloModal{
+    background-color:  aliceblue;
+    border: solid 1px black;
+    box-shadow:  10px 5px 5px rgba(0, 0, 0, 0.4);;
+}
+
+.contenidoModal{
+    font-weight: bold;
+}
