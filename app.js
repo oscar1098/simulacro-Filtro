@@ -369,9 +369,9 @@ listar.addEventListener('click',listarPasajeros); // Listar pasajeros en la tabl
 padreTablaPasajeros.addEventListener('click',operacionesPasajero);// Editar - Eliminar pasajero
 botonBuscar.addEventListener('click',buscarPasajero);// Botom buscar pasajeros
 agregarDestino.addEventListener('submit',agregarRuta); // Formulario agregar ruta
-listarRutas.addEventListener('click',listarDestinos) // Listar destinos en la tabla
-padreTablaDestino.addEventListener('click',eliminarRuta) // Eliminar Ruta
-agregarCompra.addEventListener('submit',realizarCompra)// Formulario hacer compra
+listarRutas.addEventListener('click',listarDestinos); // Listar destinos en la tabla
+padreTablaDestino.addEventListener('click',eliminarRuta); // Eliminar Ruta
+agregarCompra.addEventListener('submit',realizarCompra);// Formulario hacer compra
 
 
 
