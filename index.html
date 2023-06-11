@@ -227,7 +227,7 @@
 
   <!-- Formulario pasajeross -->
   <center>
-    <form class="row g-3 needs-validation m-3" id="agregarPasajeros">
+    <form class="row g-3 m-3" id="agregarPasajeros">
       <div class="mt-5 col-md-4 position-relative">
         <div class="form-outline text-start">
           <label for="identi" class="form-label"><b>Número de identificaión</b></label>
@@ -418,29 +418,29 @@
 
   <!-- Formulario destinos -->
   <center>
-    <form class="row g-3 needs-validation m-3" id="agregarDestino" novalidate>
+    <form class="row g-3 m-3" id="agregarDestino">
       <div class="mt-5 col-md-4 position-relative">
-        <div class="form-outline text-start text-start">
+        <div class="form-outline text-start">
           <label for="nombreRuta" class="form-label"><b>Nombre de la ruta</b></label>
-          <input type="text" class="form-control" id="nombreRuta" placeholder="Nombre de la ruta" required />
+        <input type="text" class="form-control" id="nombreRuta" placeholder="Nombre de la ruta" required />
         </div>
       </div>
       <div class="mt-5 col-md-4 position-relative">
         <div class="form-outline text-start">
-          <label for="valorTiquete" class="form-label"><b>ValorTiquete</b></label>
-          <input type="number" class="form-control" id="valorTiquete" placeholder="ValorTiquete" required />
+          <label for="valorTiquete" class="form-label"><b>Valor del Tiquete</b></label>
+        <input type="number" class="form-control" id="valorTiquete" placeholder="Valor del Tiquete" required />
         </div>
       </div>
       <div class="mt-5 col-md-4 position-relative">
         <div class="form-outline text-start">
           <label for="ciudadOrigen" class="form-label"><b>Ciudad de origen</b></label>
-          <input type="text" class="form-control" id="ciudadOrigen" placeholder="Ciudad de origen" required />
+        <input type="text" class="form-control" id="ciudadOrigen" placeholder="Ciudad de origen" required />
         </div>
       </div>
       <div class="mt-5 col-md-6 position-relative">
         <div class="form-outline text-start">
           <label for="ciudadDestino" class="form-label"><b>Ciudad destino</b></label>
-          <input type="text" class="form-control" id="ciudadDestino" placeholder="Ciudad destino" required />
+        <input type="text" class="form-control" id="ciudadDestino" placeholder="Ciudad destino" required />
         </div>
       </div>
       <div class="mt-5 col-md-6 position-relative">
@@ -449,9 +449,10 @@
           <input type="number" class="form-control" id="puntosFide" placeholder="Puntos para fidelización" required />
         </div>
       </div>
+      
       <div class="mt-3 pt-2">
         <button class="btn btn-outline-success" type="submit">Agregar</button>
-        <button class="btn btn-outline-success" type="button" id="listarRutas">Listar</button>
+      <button class="btn btn-outline-success" type="button" id="listarRutas">Listar</button>
       </div>
     </form>
   </center>

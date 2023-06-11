@@ -39,6 +39,8 @@ const selectPasajero = document.getElementById('selectPasajero') // Selec de pas
 const selectRuta = document.getElementById('selectRuta') // Selec de rutas
 const contenidoCompra = document.getElementById('contenidoCompra') // modal resumen de compra
 
+const padreTablaFidelizacion = document.getElementById('padreTablaFidelizacion') // Tabla fidelizacion
+
 
 const agregarPasajero = (event) => { // Agregar pasajeros 
 
@@ -125,6 +127,7 @@ const operacionesPasajero = (event) => { // Funcion del evento click de la tabla
         ( pasajeros.length === 0 ) ? padreTablaPasajeros.innerHTML = '' : listarPasajeros() // Actualizar el contenido de la tabla
         
         construirSelecPasajeros(); // Actualizar la informacion del selec pasajeros si se elimina uno
+        crearTablaFidelizacion(); // Actualizar contenido de la tabla
     }
 
     if ( botonEvento.id == 'btnEditarPasajero' ){ // Encontrar el boton editar
@@ -159,6 +162,7 @@ const operacionesPasajero = (event) => { // Funcion del evento click de la tabla
             listarPasajeros(); // Listar para ver los cambios
 
             construirSelecPasajeros(); // Actualizar la informacion del selec pasajeros si se edita uno
+            crearTablaFidelizacion(); // Actualizar contenido de la tabla
 
             editarPasajeros.removeEventListener('submit', editarPasajero); // Para que se ejecute la funcion una unica vez
         }
@@ -229,6 +233,8 @@ const listarDestinos = () => { // Boton listar destinos
         alert('No destinos regitrados');
         return
     }
+
+    padreTablaDestino.innerHTML = '' // Limpiar contenido de la tabla destinos
 
     for ( let destino of destinos ){ // Se crea la tabla con la informacion de los objetos
 
@@ -310,29 +316,53 @@ const realizarCompra = (event) => { // Formulario de compra
     }
 
     // Declaracion del contenido de la compra
-    const identificacion = '';
-    const nombre = '';
-    const valorCompra = 0;
-    const puntosFidelizacion = 0;
+    let identificacion = '';
+    let nombre = '';
+    let valorCompra = 0;
+    let puntosFidelizacion = 0;
+
+    for ( let destino of destinos ){// Se extrae la informacion del arreglo destinos para el resumen de la compra
+        if ( destino.nombreRuta == selectRuta.value ){
+            valorCompra = parseFloat(destino.valorTiquete)* 1.20;
+            puntosFidelizacion = parseFloat(destino.puntosFide);
+        }
+    }
 
     for ( let pasajero of pasajeros ) { // Se extrae la informacion del arreglo pasajeros para el resumen de la compra
         if ( selectPasajero.value.includes( pasajero.identi ) ){ // se valida que el documnto del select coincida con el de un pasajero
             identificacion = pasajero.identi;
-            nombre = pasajero.nombrePersona;
+            nombre = pasajero.nombrePersona + ' ' + pasajero.apellido;
+            pasajero.fidelizacion = parseFloat(pasajero.fidelizacion) + puntosFidelizacion; 
         }
     }
-
-    for ( let destino of destinos ){// Se extrae la informacion del arreglo destinos para el resumen de la compra
-        if ( destino.nombreRuta === selectRuta.value ){
-
-        }
-
-    }
-
-
+    // Se crea el modal con la informacion
+    contenidoCompra.innerHTML = ` 
+    <p><b>Identificaion: </b>${identificacion}</p>
+    <p><b>Nombre: </b>${nombre} </p>
+    <p><b>Valor de la compra: </b>${valorCompra} </p>
+    <p><b>Puntos fidelización: </b>${puntosFidelizacion} </p>
+    `
+    crearTablaFidelizacion() // Crear tabla con puntaje de fidelizacion 
 }
 
+const crearTablaFidelizacion = () => { //Crear el cuerpo de la tabla de fidelizacion
 
+    padreTablaFidelizacion.innerHTML = '' // Se vacia la tabla
+
+    for ( let pasajero of pasajeros ){
+        if ( pasajero.fidelizacion != 0 ){
+
+            const tr = document.createElement('tr');
+
+            tr.innerHTML= `
+            <td>${pasajero.nombrePersona}</td>
+            <td>${pasajero.apellido}</td>
+            <td>${pasajero.fidelizacion}</td>
+            `
+            padreTablaFidelizacion.appendChild(tr);
+        }
+    }
+}
 
 agregarPasajeros.addEventListener('submit', agregarPasajero); // Formulario agregar pasajeros
 listar.addEventListener('click',listarPasajeros); // Listar pasajeros en la tabla
