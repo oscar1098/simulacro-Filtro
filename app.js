@@ -33,6 +33,12 @@ let idRuta = 0;
 const listarRutas = document.getElementById('listarRutas'); // Boton listar rutass
 const padreTablaDestino = document.getElementById('padreTablaDestino') // Cuerpo tabla destinos
 
+// Informacion inputs compra
+const agregarCompra = document.getElementById('agregarCompra') // Formulario compras
+const selectPasajero = document.getElementById('selectPasajero') // Selec de pasajeros
+const selectRuta = document.getElementById('selectRuta') // Selec de rutas
+const contenidoCompra = document.getElementById('contenidoCompra') // modal resumen de compra
+
 
 const agregarPasajero = (event) => { // Agregar pasajeros 
 
@@ -53,6 +59,8 @@ const agregarPasajero = (event) => { // Agregar pasajeros
     pasajeros.push(pasajero);
     idPasajero++;
     agregarPasajeros.reset()
+
+    construirSelecPasajeros() // Construir el selec de pasajeros para la compras
 }
 
 const listarPasajeros = () => { // Listar pasajeros en la tabla
@@ -115,6 +123,8 @@ const operacionesPasajero = (event) => { // Funcion del evento click de la tabla
         pasajeros.splice(indice,1); // Eliminar el pasajero del arreglo pasajeros 
         
         ( pasajeros.length === 0 ) ? padreTablaPasajeros.innerHTML = '' : listarPasajeros() // Actualizar el contenido de la tabla
+        
+        construirSelecPasajeros(); // Actualizar la informacion del selec pasajeros si se elimina uno
     }
 
     if ( botonEvento.id == 'btnEditarPasajero' ){ // Encontrar el boton editar
@@ -147,6 +157,9 @@ const operacionesPasajero = (event) => { // Funcion del evento click de la tabla
 
             editarPasajeros.reset(); // Limpiar el formulario pasajeros
             listarPasajeros(); // Listar para ver los cambios
+
+            construirSelecPasajeros(); // Actualizar la informacion del selec pasajeros si se edita uno
+
             editarPasajeros.removeEventListener('submit', editarPasajero); // Para que se ejecute la funcion una unica vez
         }
         editarPasajeros.addEventListener('submit', editarPasajero); // Formulario editar pasajeros
@@ -159,15 +172,15 @@ const buscarPasajero = () => { // Buscar pasajeros por id
 
     const cuerpoDatos = document.createElement('div') // Div que almacena el contenido de la busqueda
 
-    if ( pasajeros.length === 0 ){
+    if ( pasajeros.length === 0 ){ // Validacion que hayan pasajeros
         cuerpoModalBusquedaPasajero.innerHTML = `No hay pasajeros registrados`;
     }
 
-    if ( buscar.value == '' ){
+    if ( buscar.value == '' ){ // Validacion que el input no este vacio
         cuerpoModalBusquedaPasajero.innerHTML = `Ingrese el documento del pasajero`;
     }
 
-    for ( let pasajero of pasajeros ){
+    for ( let pasajero of pasajeros ){ // Construccion del cuerpo del modal con la informacion del pasajero 
         if ( pasajero.identi === buscar.value ){
 
             cuerpoDatos.innerHTML = `
@@ -181,20 +194,20 @@ const buscarPasajero = () => { // Buscar pasajeros por id
             <p><b>Nacionalidad: </b>${pasajero.nacionalidad}</p>
             </div>
             `
-            cuerpoModalBusquedaPasajero.appendChild(cuerpoDatos);
+            cuerpoModalBusquedaPasajero.appendChild(cuerpoDatos); // Se añade el cuerpo del modal al modal
 
         }else{
-            cuerpoModalBusquedaPasajero.innerHTML = `No se encontro el pasajero`;
+            cuerpoModalBusquedaPasajero.innerHTML = `No se encontro el pasajero`;// Se valida que se ingrese un id valido
         }
     }
-    buscar.value = '';
+    buscar.value = ''; // se limpia el inut
 }
 
-const agregarRuta = (event) => {
+const agregarRuta = (event) => { // formulario agregar ruta
 
     event.preventDefault();
 
-    const ruta = { 
+    const ruta = {  // Construccion del objeto con la informacion de los inputs
                 idRuta : idRuta,
                 nombreRuta: nombreRuta.value , 
                 valorTiquete: valorTiquete.value , 
@@ -202,14 +215,22 @@ const agregarRuta = (event) => {
                 ciudadDestino: ciudadDestino.value , 
                 puntosFide: puntosFide.value  
             }
-    agregarDestino.reset();
+    idRuta++;
+    agregarDestino.reset(); // Se limpian los inputs del formulario
 
-    destinos.push(ruta)
+    destinos.push(ruta) // Se añade el objeto al arreglo destinos
+
+    construirSelecDestinos() // Se construye el select destinos para la compra
 }
 
-const listarDestinos = () => {
+const listarDestinos = () => { // Boton listar destinos
 
-    for ( let destino of destinos ){
+    if ( destinos.length === 0 ){ // Se valida que el arreglo destinos no este vacio
+        alert('No destinos regitrados');
+        return
+    }
+
+    for ( let destino of destinos ){ // Se crea la tabla con la informacion de los objetos
 
         const cuerpoTablaDestino = document.createElement('tr');
 
@@ -223,7 +244,7 @@ const listarDestinos = () => {
             <td>${destino.ciudadDestino}</td>
             <td>${destino.puntosFide}</td>
             <td class = 'text-center w-25'  id='${destino.idRuta}'> 
-            <button type="button" class="btn btn-sm btn-danger m-1" id='btnEliminarPasajero'>Eliminar</button>
+            <button type="button" class="btn btn-sm btn-danger m-1" id='btnEliminarDestino'>Eliminar</button>
             </td>
         </tr>
         `
@@ -231,12 +252,98 @@ const listarDestinos = () => {
     }
 }
 
+const eliminarRuta = (event) => { // Evento de la tabla destinos
+    const btnEliminarDestino =  event.target; 
+
+    if ( btnEliminarDestino.id == 'btnEliminarDestino' ){ // se filtra el boton eliminar del evento
+
+        padreTablaDestino.innerHTML = '' // Se limpia la tabla
+
+        let idD = btnEliminarDestino.parentNode.id // id del td que es el mismo del objeto
+        let indice = indiceArreglo('idRuta',idD,destinos); // Indice del objeto en el arreglo
+
+        destinos.splice(indice,1); // Se elimina el objeto de destinos
+
+        ( destinos.length == 0 ) ? padreTablaDestino.innerHTML = '' : listarDestinos(); // Actualizar la informacion de la tabla
+        
+        construirSelecDestinos() // Actualizar el select si se elimina un ruta
+    }
+}
+
+const construirSelecPasajeros = () => { // Construir selec de pasajeros con el contenido del arreglo pasajeros
+
+    selectPasajero.innerHTML = '<option selected>Seleccione el pasajero</option>' // Se limpia el selec de pasajeros
+
+    for ( let pasajero of pasajeros ){ // Se recorre el arreglo pasajeros para crear los select
+        if ( pasajeros.length === 0 ){
+            return;
+        } 
+        
+        const option = document.createElement('option'); // Se crea la etiqueta option para el selec de pasajeros
+        option.innerHTML = '<option>' + pasajero.identi + ' ' + pasajero.nombrePersona + '</option>' // se añaden el documento y nombre
+        selectPasajero.appendChild(option) // Se añade el option al select
+    }
+}
+
+const construirSelecDestinos = () => { // Construir selec de destinos con el contenido del arreglo destinos
+
+    selectRuta.innerHTML = '<option selected>Seleccione la ruta de viaje</option>' // Se limpia el selec de pasajeros
+
+    for ( let destino of destinos ){ // Se recorre el arreglo pasajeros para crear los select
+        if ( destinos.length === 0 ){
+            return;
+        } 
+        
+        const option = document.createElement('option'); // Se crea la etiqueta option para el selec de pasajeros
+        option.innerHTML = '<option>' + destino.nombreRuta + '</option>' // se añaden el documento y nombre
+        selectRuta.appendChild(option) // Se añade el option al select
+    }
+}
+
+const realizarCompra = (event) => { // Formulario de compra
+
+    event.preventDefault();
+
+    if ( selectPasajero.value == 'Seleccione el pasajero' || selectRuta.value == 'Seleccione la ruta de viaje' ){ // Validar que haya informacion en los inputs
+        contenidoCompra.innerHTML= 'Seleccione un pasajero y una ruta'
+        return;
+    }
+
+    // Declaracion del contenido de la compra
+    const identificacion = '';
+    const nombre = '';
+    const valorCompra = 0;
+    const puntosFidelizacion = 0;
+
+    for ( let pasajero of pasajeros ) { // Se extrae la informacion del arreglo pasajeros para el resumen de la compra
+        if ( selectPasajero.value.includes( pasajero.identi ) ){ // se valida que el documnto del select coincida con el de un pasajero
+            identificacion = pasajero.identi;
+            nombre = pasajero.nombrePersona;
+        }
+    }
+
+    for ( let destino of destinos ){// Se extrae la informacion del arreglo destinos para el resumen de la compra
+        if ( destino.nombreRuta === selectRuta.value ){
+
+        }
+
+    }
+
+
+}
+
+
+
 agregarPasajeros.addEventListener('submit', agregarPasajero); // Formulario agregar pasajeros
 listar.addEventListener('click',listarPasajeros); // Listar pasajeros en la tabla
 padreTablaPasajeros.addEventListener('click',operacionesPasajero);// Editar - Eliminar pasajero
 botonBuscar.addEventListener('click',buscarPasajero);// Botom buscar pasajeros
 agregarDestino.addEventListener('submit',agregarRuta); // Formulario agregar ruta
 listarRutas.addEventListener('click',listarDestinos) // Listar destinos en la tabla
+padreTablaDestino.addEventListener('click',eliminarRuta) // Eliminar Ruta
+agregarCompra.addEventListener('submit',realizarCompra)// Formulario hacer compra
+
+
 
 
 
