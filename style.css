@@ -72,3 +72,9 @@ h2{
 .contenidoModal{
     font-weight: bold;
 }
+
+/* Tamaño boton Home */
+
+.tamaño{
+    width: 50px;
+}
