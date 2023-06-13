@@ -107,11 +107,6 @@ const indiceArreglo = ( nombreId,numeroId,arreglo ) => { // Conseguir el indice 
     }
 }
 
-const validarInputsEditar = (input,indice,clave,arreglo) => { // Validar los inputs del formulario editar
-
-   return ( input == '' ) ? arreglo[indice][clave] : input; // si no se hicieron cambios que retorne el valor que tenia
-}
-
 const operacionesPasajero = (event) => { // Funcion del evento click de la tabla 
 
     let botonEvento = event.target; //Traer el boton que tuvo el evento
@@ -136,7 +131,7 @@ const operacionesPasajero = (event) => { // Funcion del evento click de la tabla
         
         let indice = indiceArreglo('idPasajero',idP,pasajeros) // indice del pasajero a editar del arreglo pasajeros
         
-        let editarPasajeros = document.getElementById('editarPasajeros') // Traer datos de formulario editar passajero
+        let editarPasajeros = document.getElementById('editarPasajeros') // Traer datos del formulario editar passajero
         let identiEditar = document.getElementById('identiEditar');
         let nombrePersonaEditar = document.getElementById('nombrePersonaEditar');
         let apellidoEditar = document.getElementById('apellidoEditar');
@@ -145,20 +140,28 @@ const operacionesPasajero = (event) => { // Funcion del evento click de la tabla
         let fechaEditar = document.getElementById('fechaEditar');
         let nacionalidadEditar = document.getElementById('nacionalidadEditar');
 
+        identiEditar.value = pasajeros[indice].identi;  // Traer la informacion del pasajero y colocarla en el input
+        nombrePersonaEditar.value = pasajeros[indice].nombrePersona;
+        apellidoEditar.value = pasajeros[indice].apellido;
+        telefonoEditar.value = pasajeros[indice].telefono;
+        correoEditar.value = pasajeros[indice].correo;
+        fechaEditar.value = pasajeros[indice].fecha;
+        nacionalidadEditar.value= pasajeros[indice].nacionalidad;
+
         const editarPasajero = (event) => { // Editar pasajeros
 
             event.preventDefault();
 
             //Camibiar la informacion del pasajero con los inputs
-            pasajeros[indice].identi = validarInputsEditar(identiEditar.value,indice,'identi',pasajeros);
-            pasajeros[indice].nombrePersona = validarInputsEditar(nombrePersonaEditar.value,indice,'nombrePersona',pasajeros);
-            pasajeros[indice].apellido = validarInputsEditar(apellidoEditar.value,indice,'apellido',pasajeros);
-            pasajeros[indice].telefono = validarInputsEditar(telefonoEditar.value,indice,'telefono',pasajeros);
-            pasajeros[indice].correo = validarInputsEditar(correoEditar.value,indice,'correo',pasajeros);
-            pasajeros[indice].fecha = validarInputsEditar(fechaEditar.value,indice,'fecha',pasajeros);
-            pasajeros[indice].nacionalidad = validarInputsEditar(nacionalidadEditar.value,indice,'nacionalidad',pasajeros);
+            pasajeros[indice].identi = identiEditar.value;
+            pasajeros[indice].nombrePersona =  nombrePersonaEditar.value;
+            pasajeros[indice].apellido = apellidoEditar.value;
+            pasajeros[indice].telefono = telefonoEditar.value;
+            pasajeros[indice].correo = correoEditar.value;
+            pasajeros[indice].fecha = fechaEditar.value;
+            pasajeros[indice].nacionalidad = nacionalidadEditar.value;
 
-            editarPasajeros.reset(); // Limpiar el formulario pasajeros
+            // editarPasajeros.reset(); // Limpiar el formulario pasajeros
             listarPasajeros(); // Listar para ver los cambios
 
             construirSelecPasajeros(); // Actualizar la informacion del selec pasajeros si se edita uno
