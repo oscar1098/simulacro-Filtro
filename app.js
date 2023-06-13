@@ -332,7 +332,8 @@ const realizarCompra = (event) => { // Formulario de compra
     }
 
     for ( let pasajero of pasajeros ) { // Se extrae la informacion del arreglo pasajeros para el resumen de la compra
-        if ( selectPasajero.value.includes( pasajero.identi ) ){ // se valida que el documnto del select coincida con el de un pasajero
+        let  textValidar = pasajero.identi + ' ' + pasajero.nombrePersona;
+        if ( selectPasajero.value.includes( textValidar) ){ // se valida que el documnto del select coincida con el de un pasajero
             identificacion = pasajero.identi;
             nombre = pasajero.nombrePersona + ' ' + pasajero.apellido;
             pasajero.fidelizacion = parseFloat(pasajero.fidelizacion) + puntosFidelizacion; 
