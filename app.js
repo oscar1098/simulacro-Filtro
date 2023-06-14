@@ -161,7 +161,6 @@ const operacionesPasajero = (event) => { // Funcion del evento click de la tabla
             pasajeros[indice].fecha = fechaEditar.value;
             pasajeros[indice].nacionalidad = nacionalidadEditar.value;
 
-            // editarPasajeros.reset(); // Limpiar el formulario pasajeros
             listarPasajeros(); // Listar para ver los cambios
 
             construirSelecPasajeros(); // Actualizar la informacion del selec pasajeros si se edita uno
