@@ -183,6 +183,7 @@ buscar.addEventListener('input', e => {
         const primeraCelda =  fila.querySelector('#identiElim');
         console.log(primeraCelda);
       const textoCelda = primeraCelda.textContent;
+
   
       if (textoCelda.includes(textoBuscado)) {
         fila.classList.remove('filtro');
