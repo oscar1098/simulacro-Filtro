@@ -77,11 +77,12 @@ const listarPasajeros = () => { // Listar pasajeros en la tabla
     for ( let pasajero of pasajeros ){  // Crear la tabla con el arreglo pasajeros
 
         const cuerpoTablaPasajero = document.createElement('tr');
+        cuerpoTablaPasajero.id = 'filaPasajero'
 
         // el td de losbotones tiene el mismo id que el id objeto pasajero
         cuerpoTablaPasajero.innerHTML = `
         <tr>
-          <th >${pasajero.identi}</th>
+          <th id='identiElim'>${pasajero.identi}</th>
           <td>${pasajero.nombrePersona}</td>
           <td>${pasajero.apellido}</td>
           <td>${pasajero.telefono}</td>
@@ -172,42 +173,61 @@ const operacionesPasajero = (event) => { // Funcion del evento click de la tabla
     }
 }
 
-const buscarPasajero = () => { // Buscar pasajeros por id
 
-    cuerpoModalBusquedaPasajero.innerHTML = '';
+//Buscador pasajeros
 
-    const cuerpoDatos = document.createElement('div') // Div que almacena el contenido de la busqueda
+buscar.addEventListener('input', e => {
+    const textoBuscado = e.target.value;
+  
+    document.querySelectorAll('#filaPasajero').forEach(fila => {
+        const primeraCelda =  fila.querySelector('#identiElim');
+        console.log(primeraCelda);
+      const textoCelda = primeraCelda.textContent;
+  
+      if (textoCelda.includes(textoBuscado)) {
+        fila.classList.remove('filtro');
+      } else {
+        fila.classList.add('filtro');
+      }
+    });
+  });
 
-    if ( pasajeros.length === 0 ){ // Validacion que hayan pasajeros
-        cuerpoModalBusquedaPasajero.innerHTML = `No hay pasajeros registrados`;
-    }
+// const buscarPasajero = () => { // Buscar pasajeros por id
 
-    if ( buscar.value == '' ){ // Validacion que el input no este vacio
-        cuerpoModalBusquedaPasajero.innerHTML = `Ingrese el documento del pasajero`;
-    }
+//     cuerpoModalBusquedaPasajero.innerHTML = '';
 
-    for ( let pasajero of pasajeros ){ // Construccion del cuerpo del modal con la informacion del pasajero 
-        if ( pasajero.identi === buscar.value ){
+//     const cuerpoDatos = document.createElement('div') // Div que almacena el contenido de la busqueda
 
-            cuerpoDatos.innerHTML = `
-            <div>
-            <p><b>Identificacion: </b>${pasajero.identi}</p>
-            <p><b>Nombre: </b>${pasajero.nombrePersona}</p>
-            <p><b>Apellido: </b>${pasajero.apellido}</p>
-            <p><b>Telefono: </b>${pasajero.telefono}</p>
-            <p><b>Correo: </b>${pasajero.correo}</p>
-            <p><b>Fecha de nacimiento: </b>${pasajero.fecha}</p>
-            <p><b>Nacionalidad: </b>${pasajero.nacionalidad}</p>
-            </div>
-            `
-            cuerpoModalBusquedaPasajero.appendChild(cuerpoDatos); // Se añade el cuerpo del modal al modal
+//     if ( pasajeros.length === 0 ){ // Validacion que hayan pasajeros
+//         cuerpoModalBusquedaPasajero.innerHTML = `No hay pasajeros registrados`;
+//     }
 
-        }else{
-            cuerpoModalBusquedaPasajero.innerHTML = `No se encontro el pasajero`;// Se valida que se ingrese un id valido
-        }
-    }
-    buscar.value = ''; // se limpia el inut
-}
+//     if ( buscar.value == '' ){ // Validacion que el input no este vacio
+//         cuerpoModalBusquedaPasajero.innerHTML = `Ingrese el documento del pasajero`;
+//     }
+
+//     for ( let pasajero of pasajeros ){ // Construccion del cuerpo del modal con la informacion del pasajero 
+//         if ( pasajero.identi === buscar.value ){
+
+//             cuerpoDatos.innerHTML = `
+//             <div>
+//             <p><b>Identificacion: </b>${pasajero.identi}</p>
+//             <p><b>Nombre: </b>${pasajero.nombrePersona}</p>
+//             <p><b>Apellido: </b>${pasajero.apellido}</p>
+//             <p><b>Telefono: </b>${pasajero.telefono}</p>
+//             <p><b>Correo: </b>${pasajero.correo}</p>
+//             <p><b>Fecha de nacimiento: </b>${pasajero.fecha}</p>
+//             <p><b>Nacionalidad: </b>${pasajero.nacionalidad}</p>
+//             </div>
+//             `
+//             cuerpoModalBusquedaPasajero.appendChild(cuerpoDatos); // Se añade el cuerpo del modal al modal
+
+//         }else{
+//             cuerpoModalBusquedaPasajero.innerHTML = `No se encontro el pasajero`;// Se valida que se ingrese un id valido
+//         }
+//     }
+//     buscar.value = ''; // se limpia el inut
+// }
 
 const agregarRuta = (event) => { // formulario agregar ruta
 
@@ -370,7 +390,7 @@ const crearTablaFidelizacion = () => { //Crear el cuerpo de la tabla de fideliza
 agregarPasajeros.addEventListener('submit', agregarPasajero); // Formulario agregar pasajeros
 listar.addEventListener('click',listarPasajeros); // Listar pasajeros en la tabla
 padreTablaPasajeros.addEventListener('click',operacionesPasajero);// Editar - Eliminar pasajero
-botonBuscar.addEventListener('click',buscarPasajero);// Botom buscar pasajeros
+// botonBuscar.addEventListener('click',buscarPasajero);// Botom buscar pasajeros
 agregarDestino.addEventListener('submit',agregarRuta); // Formulario agregar ruta
 listarRutas.addEventListener('click',listarDestinos); // Listar destinos en la tabla
 padreTablaDestino.addEventListener('click',eliminarRuta); // Eliminar Ruta
